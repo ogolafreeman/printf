@@ -34,8 +34,8 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 			return (-1);
 		}
 		ulength = ulength + write(1, "%%", 1);
-		if (fmt[*ind - 1] == 32)
-			ulength = ulength + write(1, 32, 1);
+		if (fmt[*ind - 1] == ' ')
+			ulength = ulength + write(1, " ", 1);
 		else if (width)
 		{
 			--(*ind);
