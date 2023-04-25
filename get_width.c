@@ -31,7 +31,7 @@ int get_width(const char *format, int *i, va_list list)
 		current++;
 	} while (format[current] != '\0');
 
-	*i = curent - 1;
+	*i = current - 1;
 
 	return (width);
 }
