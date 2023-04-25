@@ -36,7 +36,7 @@ int handle_write_char(char c, char buffer[], int flags,
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFF_SIZE - x - 1], width - 1));
 		else
-			return (write(1, buffer[BUFF_SIZE - x - 1], width - 1) +
+			return (write(1, &buffer[BUFF_SIZE - x - 1], width - 1) +
 					write(1, &buffer[0], 1));
 	}
 	return (write(1, &buffer[0], 1));
