@@ -28,7 +28,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		if (fmt[*ind] == kinds[i].fmt)
 			return (kinds[i].fn(list, buffer, flags, width, precision, size));
 		i++;
-	} while(kinds[i].fmt != '\0');
+	} while (kinds[i].fmt != '\0');
 
 	if (kinds[i].fmt == '\0')
 	{
