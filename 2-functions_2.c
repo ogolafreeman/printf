@@ -1,14 +1,13 @@
 #include "main.h"
 
-/******* Print pointer *****/
 /**
- * print_octal - prints unsigned number in octal
- * @types: list of arguments
- * @buffer: BUffer array to handle print
- * @width: fetch width
- * @size: specifies size
- * @flags: Calculates active flags
- * @precision: specifies precision
+ * print_octal - ...
+ * @types: ...
+ * @buffer: ...
+ * @width: ...
+ * @size: ...
+ * @flags: ...
+ * @precision: ...
  *
  * Return: Characted printed
  */
@@ -47,22 +46,22 @@ int print_pointer(va_list types, char buffer[],
 	return (write_pointer(buffer, index, len,
 				width, flags, padd, ex_c, pd_start));
 }
-/******* Print non printable *****/
+
 /**
- * print_non_prinatble - prints ascii code in hexa
- * @types: list of arguments
- * @buffer: BUffer array to handle print
+ * print_non_prinatble - ...
+ * @types: ...
+ * @buffer: ...
  * @width: fetch width
- * @size: specifies size
- * @flags: Calculates active flags
- * @precision: specifies precision
+ * @size: ...
+ * @flags: ...
+ * @precision: ...
  *
  * Return: Characted printed
  */
 int print_non_printable(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int x = 0, o_set = 0;
+	int x = 0, os = 0;
 	char *str = va_arg(types, char *);
 
 	UNUSED(flags);
@@ -75,24 +74,24 @@ int print_non_printable(va_list types, char buffer[],
 
 	do {
 		if (is_printable(str[x]))
-			buffer[x + o_set] = str[x];
+			buffer[x + os] = str[x];
 		else
-			o_set += append_hexa_code(str[x], buffer, x + o_set);
+			os = os + append_hexa_code(str[x], buffer, x + os);
 		x++;
 	} while (str[x - 1] != '\0');
-	buffer[x + o_set] = '\0';
+	buffer[x + os] = '\0';
 
-	return (write(1, buffer, x + o_set));
+	return (write(1, buffer, x + os));
 }
-/******* Print Reverse *****/
+
 /**
- * print_reverse - prints reverse string
- * @types: list of arguments
- * @buffer: BUffer array to handle print
- * @width: fetch width
- * @size: specifies size
- * @flags: Calculates active flags
- * @precision: specifies precision
+ * print_reverse -...
+ * @types: ...
+ * @buffer: ...
+ * @width: ...
+ * @size: ...
+ * @flags: ...
+ * @precision: ...
  *
  * Return: Characted printed
  */
@@ -133,14 +132,13 @@ int print_reverse(va_list types, char buffer[],
 
 	return (cnt);
 }
-/******* Print string in ROT13 *****/
 /**
- * print_rot13string - string in rot13
- * @types: list of arguments
- * @buffer: BUffer array to handle print
- * @width: fetch width
- * @size: specifies size
- * @flags: Calculates active flags
+ * print_rot13string - ...
+ * @types: ...
+ * @buffer: ...
+ * @width: ...
+ * @size: ...
+ * @flags: ...
  * @precision: specifies precision
  *
  * Return: Characted printed
